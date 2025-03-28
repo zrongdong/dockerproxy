@@ -4,7 +4,7 @@ on:
   push:
     tags:
       - '*'
-      
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ vars.DOCKER_IMAGENAME }}:${{ github.ref_name }}
+          tags: ${{ vars.DOCKER_REGISTRY }}/${{ vars.DOCKER_IMAGENAME }}:${{ github.ref_name }}
